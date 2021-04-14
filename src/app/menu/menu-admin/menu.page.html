@@ -1,0 +1,21 @@
+  <ion-menu side="start" contentId="main" menu="content">
+    <ion-header>
+      <ion-toolbar style="color: white;">
+        <ion-title>Aventon UTA!</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeMenu()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item [routerLink]="['/menu/home']">Inicio</ion-item>
+        <ion-item [routerLink]="['/menu/home/registrar']"> Registro</ion-item>
+        <ion-item [routerLink]="['/menu/home/acercade']">Acerca de</ion-item>
+        <ion-item (click)="logout()">Log out</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>

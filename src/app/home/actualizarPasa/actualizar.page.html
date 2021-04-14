@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: white;">Actualizar</ion-title>
+    <ion-buttons slot="start" size="large">
+      <ion-menu-button style="color: white;"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="fm"> 
+    <h4>Ingrese nuevos datos</h4><br>
+    <form *ngFor="let pasa of pasajeros;" [formGroup]="actualizarForm" 
+    (ngSubmit)="modificar(actualizarForm.value)">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre" [(ngModel)]="pasa.nombre"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.nombre">
+          <div *ngIf="actualizarForm.get('nombre').hasError(validation.type) &&
+          (actualizarForm.get('nombre').dirty || actualizarForm.get('nombre').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Celular</ion-label>
+        <ion-input formControlName="celular" [(ngModel)]="pasa.celular"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.celular">
+          <div *ngIf="actualizarForm.get('celular').hasError(validation.type) &&
+          (actualizarForm.get('celular').dirty || actualizarForm.get('celular').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Curp</ion-label>
+        <ion-input formControlName="curp" [(ngModel)]="pasa.curp"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.curp">
+          <div *ngIf="actualizarForm.get('curp').hasError(validation.type) &&
+          (actualizarForm.get('curp').dirty || actualizarForm.get('curp').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" [(ngModel)]="pasa.email"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div *ngIf="actualizarForm.get('email').hasError(validation.type) &&
+          (actualizarForm.get('email').dirty || actualizarForm.get('email').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password" 
+        [(ngModel)]="pasa.password"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div *ngIf="actualizarForm.get('password').hasError(validation.type) &&
+          (actualizarForm.get('password').dirty || actualizarForm.get('password').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Matricula</ion-label>
+        <ion-input formControlName="idMatricula" [(ngModel)]="idMatricula"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.idMatricula">
+          <div *ngIf="actualizarForm.get('idMatricula').hasError(validation.type) &&
+          (actualizarForm.get('idMatricula').dirty || actualizarForm.get('idMatricula').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-button expand="full" [disabled]="!actualizarForm.valid" type="submit"
+      shape="round">Enviar</ion-button>
+    </form>
+  </div>
+</ion-content>

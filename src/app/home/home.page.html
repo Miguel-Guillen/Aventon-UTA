@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" size="large">
+      <ion-menu-button style="color: white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: white;">Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content>
+    <ion-slides pager="true" [options]="slideOpts">
+    <!--slide 1-->
+      <ion-slide>
+        <h3 style="margin-top: 25px;">Sistema Gestor Aventon UTA</h3><br>
+        <h5>Bienvenido Administrador</h5>
+        <div class="menu">
+          <ion-button (click)="goToSlide()">Consultar usuario</ion-button>
+          <ion-button [routerLink]="['./registrar']">Registrar usuario</ion-button>
+          <ion-button (click)="goToSlide2()">Listado de Reportes</ion-button>
+        </div>
+
+      </ion-slide>
+      <!--slide 2-->
+      <ion-slide>
+        <h4>Usuarios registrados</h4>
+        <ion-card>
+          <ion-grid>
+            <ion-row style="background: #278ea5">
+              <ion-col size="4">Email</ion-col>
+              <ion-col size="3">Matricula</ion-col>
+              <ion-col size="3">Password</ion-col>
+              <ion-col size="2">Editar</ion-col>
+            </ion-row>
+            <ion-row *ngFor="let user of users; let i = index">
+              <ion-col size="4">{{user.email}}</ion-col>
+              <ion-col size="3">{{user.idMatricula}}</ion-col>
+              <ion-col size="3">{{user.password}}</ion-col>
+              <ion-col size="1"><ion-icon name="build-outline"
+                [routerLink]="['actualizarUser', user.idMatricula]"></ion-icon></ion-col>
+              <ion-col size="0"><ion-icon name="trash-outline"
+                (click)="eliminar(user.idMatricula)"></ion-icon></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+        <h4>Pasajeros registrados</h4>
+        <ion-card>
+          <ion-grid>
+            <ion-row style="background:#278ea5">
+              <ion-col size="3">Nombre</ion-col>
+              <ion-col size="2">Celular</ion-col>
+              <ion-col size="3">Email</ion-col>
+              <ion-col size="2">ID</ion-col>
+              <ion-col size="2">Editar</ion-col>
+            </ion-row>
+            <ion-row *ngFor="let pasa of pasajeros; let i = index">
+              <ion-col size="3">{{pasa.nombre}}</ion-col>
+              <ion-col size="2">{{pasa.celular}}</ion-col>
+              <ion-col size="3">{{pasa.email}}</ion-col>
+              <ion-col size="2">{{pasa.idMatricula}}</ion-col>
+              <ion-col size="1"><ion-icon name="build-outline"
+              [routerLink]="['actualizar', pasa.idMatricula]"></ion-icon></ion-col>
+              <ion-col size="0"><ion-icon name="trash-outline"
+              (click)="eliminarPasa(pasa.idMatricula)"></ion-icon></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+        <h4>Conductores registrados</h4>
+        <ion-card>
+          <ion-grid>
+            <ion-row style="background: #278ea5">
+              <ion-col size="3">Nombre</ion-col>
+              <ion-col size="2">Celular</ion-col>
+              <ion-col size="3">Email</ion-col>
+              <ion-col size="2">ID</ion-col>
+              <ion-col size="2">Editar</ion-col>
+            </ion-row>
+            <ion-row *ngFor="let cond of conductores; let i = index">
+              <ion-col size="3">{{cond.nombre}}</ion-col>
+              <ion-col size="2">{{cond.celular}}</ion-col>
+              <ion-col size="3">{{cond.email}}</ion-col>
+              <ion-col size="2">{{cond.idMatricula}}</ion-col>
+              <ion-col size="1"><ion-icon name="build-outline"
+              [routerLink]="['', cond.idMatricula]"></ion-icon></ion-col>
+              <ion-col size="0"><ion-icon name="trash-outline"
+              (click)="eliminarCond(cond.idMatricula)"></ion-icon></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-slide>
+      <!--slide 3-->
+      <ion-slide>
+        <h4>Listado de reportes</h4>
+          <ion-card>
+            <ion-grid>
+              <ion-row style="background: #278ea5">
+                <ion-col size="2">ID</ion-col>
+                <ion-col size="3">Motivo</ion-col>
+                <ion-col size="3">Fecha</ion-col>
+                <ion-col size="3">Descripcion</ion-col>
+              </ion-row>
+              <ion-row *ngFor="let repo of reportes; let i = index"
+              [routerLink]="['/menu/home/reportes', repo.idReporte]">
+                <ion-col size="2">{{repo.idReporte}}</ion-col>
+                <ion-col size="3">{{repo.motivo}}</ion-col>
+                <ion-col size="3">{{repo.fecha}}</ion-col>
+                <ion-col size="3">{{repo.descripcion}}</ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>

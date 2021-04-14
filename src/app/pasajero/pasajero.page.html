@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" size="large">
+      <ion-menu-button style="color: white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: white;">Bienvenido {{pasajero.info.idMatricula}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="destino">
+    <ion-item>
+      <input type="text" (keydown.enter)="$event.preventDefault()"
+      placeholder="Destino" autocorrect="off" autocapitalize="off" 
+      spellcheck="off" #search>
+      <ion-icon slot="end" size="large" name="search-circle-outline"></ion-icon>
+    </ion-item>
+  </div>
+
+  <ion-item *ngFor="let viaje of misViajes; let i of index" class="ahi">
+    <ion-label>
+      <p>Conductor: {{viaje.nombre}}</p>
+      <p>Placas: {{viaje.placas}}</p>
+      <p>Matricula: {{viaje.idConductor}}</p>
+      <!-- <ion-icon (click)="cancelarV()" style="float: right;" name="close-circle-outline"
+      size="large" color="danger">Cancelar</ion-icon> -->
+    </ion-label>
+  </ion-item>
+
+  <ion-footer>
+    <ion-button shape="round" expand="full" (click)="viajeD()">Solicitar Viaje</ion-button>
+  </ion-footer>
+
+  <!-- <agm-map [latitude]=latitud [longitude]=longitud [zoom]=defaultZoom [disableDoubleClickZoom]="true">
+    <agm-marker *ngIf="currentCenter" [latitude]=currentCenter.lat [longitude]=currentCenter.long></agm-marker>
+    <agm-marker *ngIf="destino" [latitude]=destino.lat [longitude]=destino.long></agm-marker>
+    <agm-polyline [strokeColor]="'red'" *ngIf="coordinates">
+      <agm-polyline-point *ngFor="let coords of coordinates" [latitude]="coords.lat" 
+      [longitude]="coords.long"></agm-polyline-point>
+    </agm-polyline>
+  </agm-map> -->
+
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    <agm-marker [latitude]="latitud" [longitude]="longitud"></agm-marker>
+  </agm-map>
+
+</ion-content>

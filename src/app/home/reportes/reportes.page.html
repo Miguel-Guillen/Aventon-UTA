@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-toolbar style="color: white;">
+    <ion-buttons slot="start" size="large">
+      <ion-menu-button style="color: white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fmr">
+    <div class="b">
+      <ion-icon name="trash-outline" color="danger" size="large"
+      (click)="eliminar(idReporte)"></ion-icon>
+    </div>
+    <h4>Reporte No# {{idReporte}}</h4><br>
+    <form [formGroup]="reportForm" *ngFor="let repo of reportes;">
+      <ion-item>
+        <ion-label position="floating">No# Reporte</ion-label>
+        <ion-input formControlName="idReporte" [(ngModel)]="repo.idReporte"
+        disabled></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.idReporte">
+          <div *ngIf="reportForm.get('idReporte').hasError(validation.type) &&
+          (reportForm.get('idReporte').dirty || reportForm.get('idReporte').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Motivo</ion-label>
+        <ion-select formControlName="motivo" [(ngModel)]="repo.motivo">
+          <ion-select-option value="robo">Robo</ion-select-option>
+          <ion-select-option value="choque">Choque</ion-select-option>
+          <ion-select-option value="accidente">Accidente</ion-select-option>
+          <ion-select-option value="otro">Otro</ion-select-option>
+        </ion-select>  
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.motivo">
+          <div *ngIf="reportForm.get('motivo').hasError(validation.type) &&
+          (reportForm.get('motivo').dirty || reportForm.get('motivo').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Fecha</ion-label>
+        <ion-input formControlName="fecha" [(ngModel)]="repo.fecha"
+        disabled></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.fecha">
+          <div *ngIf="reportForm.get('fecha').hasError(validation.type) &&
+          (reportForm.get('fecha').dirty || reportForm.get('fecha').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Ubicacion</ion-label>
+        <ion-input formControlName="ubicacion" [(ngModel)]="repo.ubicacion">
+        </ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.ubicacion">
+          <div *ngIf="reportForm.get('ubicacion').hasError(validation.type) &&
+          (reportForm.get('ubicacion').dirty || reportForm.get('ubicacion').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Descripcion</ion-label>
+        <ion-input formControlName="descripcion" [(ngModel)]="repo.descripcion">
+        </ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.descripcion">
+          <div *ngIf="reportForm.get('descripcion').hasError(validation.type) &&
+          (reportForm.get('descripcion').dirty || reportForm.get('descripcion').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Matricula del conductor</ion-label>
+        <ion-input formControlName="idMatricula" [(ngModel)]="repo.idMatricula">
+        </ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.idMatricula">
+          <div *ngIf="reportForm.get('idMatricula').hasError(validation.type) &&
+          (reportForm.get('idMatricula').dirty || reportForm.get('idMatricula').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Matricula del pasajero</ion-label>
+        <ion-input formControlName="idPasajero" [(ngModel)]="repo.idPasajero">
+        </ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.idPasajero">
+          <div *ngIf="reportForm.get('idPasajero').hasError(validation.type) &&
+          (reportForm.get('idPasajero').dirty || reportForm.get('idPasajero').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Placas</ion-label>
+        <ion-input formControlName="placas" [(ngModel)]="repo.placas"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.placas">
+          <div *ngIf="reportForm.get('placas').hasError(validation.type) &&
+          (reportForm.get('placas').dirty || reportForm.get('placas').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <!-- <ion-button expand="full" [disabled]="!reportForm.valid" type="submit"
+      shape="round">Enviar</ion-button> -->
+    </form>
+  </div>
+</ion-content>

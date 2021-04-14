@@ -1,0 +1,23 @@
+.fl{
+    margin: 20px 10px;
+    color: rgb(207, 23, 23);
+}
+.fl h3{
+    color: rgb(2, 66, 2);
+    padding-bottom: 7px;
+}
+ion-item{
+    --border-radius: 20px;
+    --border-style: none;
+}
+.validation-error{
+    padding: 4px;
+}
+img{
+    width: 88%;
+    height: 88%;
+    border: solid lightslategray;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}

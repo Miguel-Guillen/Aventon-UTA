@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" size="large">
+      <ion-menu-button style="color: white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: white;">Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fr">
+    <h4 style="color: #278ea5">Ingrese sus datos</h4><br>
+    <form [formGroup]="registrarForm" (ngSubmit)="register(registrarForm.value)">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div *ngIf="registrarForm.get('email').hasError(validation.type) &&
+          (registrarForm.get('email').dirty || registrarForm.get('email').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>      
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div *ngIf="registrarForm.get('password').hasError(validation.type) &&
+          (registrarForm.get('password').dirty || registrarForm.get('password').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>        
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Matricula</ion-label>
+        <ion-input formControlName="idMatricula"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.idMatricula">
+          <div *ngIf="registrarForm.get('idMatricula').hasError(validation.type) &&
+          (registrarForm.get('idMatricula').dirty || registrarForm.get('idMatricula').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>        
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-button expand="full" [disabled]="!registrarForm.valid" type="submit"
+      shape="round">Enviar</ion-button>
+    </form>
+  </div>
+</ion-content>

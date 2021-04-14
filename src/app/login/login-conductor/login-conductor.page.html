@@ -1,0 +1,51 @@
+<ion-content>
+  <div class="fl">
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+      <h4 style="color: black; text-align: center;">Inicio de sesion</h4>
+      <img src="../../../assets/img/img1.jpg"><br>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div *ngIf="loginForm.get('email').hasError(validation.type) &&
+          (loginForm.get('email').dirty || loginForm.get('email').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>    
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Matricula</ion-label>
+        <ion-input formControlName="idMatricula"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.idMatricula">
+          <div *ngIf="loginForm.get('idMatricula').hasError(validation.type) &&
+          (loginForm.get('idMatricula').dirty || loginForm.get('idMatricula').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="validation-error">
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div *ngIf="loginForm.get('password').hasError(validation.type) &&
+          (loginForm.get('password').dirty || loginForm.get('password').touched)">
+          <ion-icon name="alert-circle-outline"></ion-icon>  
+          {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-button expand="full" [disabled]="!loginForm.valid" type="submit"
+      shape="round">Enviar</ion-button>
+    </form>
+    <ion-button expand="full" shape="round" [routerLink]="['/']"
+    >registrar nueva cuenta</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" size="large">
+      <ion-menu-button style="color: white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: white;">Bienvenido {{pasajero.info.idMatricula}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let v of misViajes; let i of index">
+      <ion-title>Destino: {{v.latitudD}},{{v.longitudD}}</ion-title>
+      <ion-label>Fecha: {{v.fecha}}</ion-label>
+      <ion-label>Conductor: {{v.idConductor}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

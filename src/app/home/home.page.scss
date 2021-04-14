@@ -1,0 +1,36 @@
+ion-slide{
+  display: block;
+}
+ion-label{
+  display: block;
+}
+ion-card{
+  --color: black;
+  --border: #278ea5 solid;
+}
+ion-card-title{
+  --color: black;
+}
+ion-icon{
+  font-size: 19px;
+}
+ion-item{
+  --border-radius: 10px;
+}
+ion-button{
+  --width: contain;
+  height: 50px;
+  --border-radius: 10px;
+  --background: #4c4264bd;
+  display: block;
+}
+.menu{
+  width: 85%;
+  margin: 35px auto;
+}
+.fr{
+  margin: 0 20px 0;
+}
+h4{
+  margin: 28px 0 28px;
+}
