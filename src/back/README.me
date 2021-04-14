@@ -1,0 +1,54 @@
+back end desarrollado en php con xampp y phpMyAdmin
+
+base de datos bdaventon
+
+tablas generadas
+
+tcorresregistro (
+    email: varchar,
+    password: varchar,
+    idMatricula: int
+)
+
+tconductores (
+    nombre: varchar,
+    celular: int,
+    curp: varchar,
+    password: varchar, 
+    email: varchar,
+    idMatricula: int
+)
+
+tpasajeros (
+    nombre: varchar,
+    celular: int,
+    curp: varchar,
+    password: varchar, 
+    email: varchar,
+    idMatricula: int
+)
+
+tviajes (
+    latitud: varchar,
+    longitud: varchar,
+    latitudD: varchar,
+    longitdD: varchar,
+    estado: int,
+    fecha: timestamp,
+    idMatricula: int,
+    idConductor: int,
+    placas: varchar,
+    nombre: varchar
+)
+
+treportes (
+    idReporte: int AUTO_INCREMENT,
+    motivo: varchar,
+    ubicacion: varchar,
+    destino: varchar,
+    descripcion: varchar,
+    fecha: timestamp,
+    idMatricula: int, // id matricula del pasajero
+    idConductor: int,
+    placas: varchar
+)
